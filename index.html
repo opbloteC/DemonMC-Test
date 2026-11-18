@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DemonMC Network</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#050506" />
+  <script>
+    (function () {
+      // Opening this file directly: jump to the local Next.js app.
+      if (location.protocol === "file:") {
+        location.replace("http://localhost:3000/");
+        return;
+      }
+      // Served by a static host from a subpath: return to the app root.
+      // At "/" a redirect would loop, so the links below are shown instead.
+      var atRoot = location.pathname === "/" || location.pathname === "/index.html";
+      if (!atRoot) location.replace("/");
+    })();
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      background: #050506;
+      color: #f4f4f5;
+      background-image: radial-gradient(700px 400px at 50% -10%, rgba(255, 45, 63, 0.12), transparent 65%);
+    }
+
+    main {
+      max-width: 460px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      color: #ff2d3f;
+    }
+
+    p {
+      margin: 12px 0 0;
+      color: #a1a1aa;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    a {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      padding: 9px 16px;
+      color: #f4f4f5;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    a.primary {
+      border-color: transparent;
+      background: #ff2d3f;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Demon<span>MC</span> Network</h1>
+    <p>
+      The live site runs on Next.js. Start it with <strong>npm run dev</strong>, then open
+      localhost:3000.
+    </p>
+    <div class="links">
+      <a class="primary" href="http://localhost:3000/">Open the live site</a>
+      <a href="./standalone/landing.html">Static landing</a>
+      <a href="./standalone/index.html">Single-file demo</a>
+    </div>
+  </main>
+</body>
+</html>

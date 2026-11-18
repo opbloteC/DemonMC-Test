@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DemonMC Network — Live Site</title>
+  <meta
+    name="description"
+    content="DemonMC is a competitive Minecraft network. Sign in or create an account on the live site."
+  />
+  <meta name="theme-color" content="#050506" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050506;
+      --panel: #0a0a0c;
+      --line: rgba(255, 255, 255, 0.08);
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --dim: #71717a;
+      --ember: #ff2d3f;
+      --ember-bright: #ff5866;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      background-image:
+        radial-gradient(900px 500px at 85% -10%, rgba(255, 45, 63, 0.08), transparent 60%),
+        radial-gradient(700px 400px at 0% 20%, rgba(255, 255, 255, 0.025), transparent 60%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(5, 5, 6, 0.82);
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 70px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .brand svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .wordmark {
+      font-family: "Sora", "Inter", system-ui, sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .wordmark span {
+      color: var(--ember);
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .header-links a:hover {
+      color: var(--text);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .button-primary {
+      background: var(--ember);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(255, 45, 63, 0.25);
+    }
+
+    .button-primary:hover {
+      background: var(--ember-bright);
+    }
+
+    .button-ghost {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+    }
+
+    .button-ghost:hover {
+      border-color: rgba(255, 45, 63, 0.4);
+    }
+
+    .notice {
+      border-bottom: 1px solid rgba(255, 45, 63, 0.22);
+      background: rgba(255, 45, 63, 0.08);
+      padding: 8px 16px;
+      color: #ffd9dd;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .hero {
+      display: flex;
+      min-height: calc(100svh - 112px);
+      align-items: center;
+      padding: 72px 0;
+    }
+
+    .hero-content {
+      max-width: 640px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--ember-bright);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 16px 0 0;
+      font-family: "Sora", "Inter", system-ui, sans-serif;
+      font-size: clamp(2.6rem, 7vw, 4.4rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 0.98;
+      text-transform: uppercase;
+    }
+
+    h1 .accent {
+      color: var(--ember);
+      text-shadow: 0 0 34px rgba(255, 45, 63, 0.45);
+    }
+
+    .lede {
+      max-width: 520px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 44px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      padding: 18px;
+    }
+
+    .card strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .card p {
+      margin: 8px 0 0;
+      color: var(--dim);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 26px 0;
+      color: var(--dim);
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-inner strong {
+      color: #d4d4d8;
+    }
+
+    @media (min-width: 720px) {
+      .card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 639px) {
+      .header-links a:not(.button) {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">
+    Static entry page · links open the real Next.js app. Run <strong>npm run dev</strong> and visit
+    <strong>localhost:3000</strong> if the links are unreachable.
+  </div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" data-live-path="/" aria-label="DemonMC home">
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="1.5" y="1.5" width="45" height="45" rx="10" fill="#0b0b0e" stroke="rgba(255,255,255,0.14)" />
+          <rect x="1.5" y="1.5" width="45" height="45" rx="10" fill="none" stroke="rgba(255,45,63,0.35)" />
+          <path
+            d="M16 12.5h9.6C32.9 12.5 37.5 17 37.5 24s-4.6 11.5-11.9 11.5H16v-23Zm7 6.2v10.6h2.4c3.4 0 5.2-1.9 5.2-5.3s-1.8-5.3-5.2-5.3h-2.4Z"
+            fill="#ff2d3f"
+          />
+        </svg>
+        <span class="wordmark">Demon<span>MC</span></span>
+      </a>
+
+      <nav class="header-links" aria-label="Live site links">
+        <a href="/players" data-live-path="/players">Players</a>
+        <a href="/announcements" data-live-path="/announcements">Announcements</a>
+        <a class="button button-ghost" href="/login" data-live-path="/login">Sign in</a>
+        <a class="button button-primary" href="/register" data-live-path="/register">Create account</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap hero">
+    <div class="hero-content">
+      <p class="eyebrow">Minecraft Network · Java Edition</p>
+      <h1>The Biggest <span class="accent">Minecraft</span><br />Network</h1>
+      <p class="lede">
+        Enter the world. Build your legacy. Sign in to the live DemonMC site to reach your dashboard,
+        the player directory, announcements and the staff panel.
+      </p>
+
+      <div class="actions">
+        <a class="button button-primary" href="/login" data-live-path="/login">Sign in</a>
+        <a class="button button-ghost" href="/register" data-live-path="/register">Create account</a>
+        <a class="button button-ghost" href="/" data-live-path="/">Open homepage</a>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <strong>Real accounts</strong>
+          <p>Registration writes to PostgreSQL. Sessions use HttpOnly cookies.</p>
+        </article>
+        <article class="card">
+          <strong>Role-aware pages</strong>
+          <p>Players, staff, admin and owner access is enforced on the server.</p>
+        </article>
+        <article class="card">
+          <strong>Community</strong>
+          <p>Announcements, roster and Discord invite, all in one place.</p>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span><strong>DemonMC Network</strong> · Java Edition</span>
+      <span>&copy; <span id="year">2026</span> DemonMC. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var year = document.getElementById("year");
+      if (year) year.textContent = String(new Date().getFullYear());
+
+      if (location.protocol !== "file:") return;
+      document.querySelectorAll("[data-live-path]").forEach(function (link) {
+        link.href = "http://localhost:3000" + link.getAttribute("data-live-path");
+      });
+    })();
+  </script>
+</body>
+</html>
